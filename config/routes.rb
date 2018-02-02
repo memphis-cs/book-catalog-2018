@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'pages/home', to: 'pages#home', as: 'pages_home'
+  get 'sdflming', to: 'pages#sdflming', as: 'pages_sdflming'
 
   root to: 'pages#home'
 
