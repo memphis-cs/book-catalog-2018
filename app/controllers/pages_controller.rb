@@ -9,4 +9,7 @@ class PagesController < ApplicationController
   def bob
   end
 
+  def alice
+  end
+
 end
