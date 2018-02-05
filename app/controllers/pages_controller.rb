@@ -6,4 +6,7 @@ class PagesController < ApplicationController
   def sdflming
   end
 
+  def alice
+  end
+
 end
