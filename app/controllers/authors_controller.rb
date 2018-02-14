@@ -5,6 +5,18 @@ class AuthorsController < ApplicationController
         # render 'authors/index.html.erb'
     end
 
+    def new
+        @author = Author.new
+        # render 'authors/new.html.erb'
+    end
+
+    def create
+        Author.create!(first_name: params[:author][:first_name],
+                       last_name: params[:author][:last_name],
+                       year_born: params[:author][:year_born])
+        redirect_to authors_url
+    end
+
     def show
         @author = Author.find(params[:id])
         # render 'authors/show.html.erb'

@@ -1,0 +1,28 @@
+
+<h1>New Author</h1>
+
+<%= form_for @author do |f| %>
+
+    <p>
+    First name<br>
+    <%= f.text_field :first_name %>
+    </p>
+
+    <p>
+    Last name<br>
+    <%= f.text_field :last_name %>
+    </p>
+
+    <p>
+    Year born<br>
+    <%= f.text_field :year_born %>
+    </p>
+
+    <p>
+    <%= f.submit "Create Author" %>
+    </p>
+<% end %>
+
+<p>
+<%= link_to 'Back', authors_path %>
+</p>
