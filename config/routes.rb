@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'authors/new', to: 'authors#new', as: 'new_author'
   post 'authors', to: 'authors#create'
   get 'authors/:id', to: 'authors#show', as: 'author'
+  get 'authors/:id/edit', to: 'authors#edit', as: 'edit_author'
+  put 'authors/:id', to: 'authors#update'
+  patch 'authors/:id', to: 'authors#update'
 
   get 'pages/home', to: 'pages#home', as: 'pages_home'
   get 'sdflming', to: 'pages#sdflming', as: 'pages_sdflming'

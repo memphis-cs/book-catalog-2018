@@ -22,4 +22,17 @@ class AuthorsController < ApplicationController
         # render 'authors/show.html.erb'
     end
 
+    def edit
+        @author = Author.find(params[:id])
+        # render 'authors/edit.html.erb'
+    end
+
+    def update
+        @author = Author.find(params[:id])
+        @author.update!(first_name: params[:author][:first_name],
+                        last_name: params[:author][:last_name],
+                        year_born: params[:author][:year_born])
+        redirect_to authors_url
+    end
+
 end
