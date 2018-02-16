@@ -1,6 +1,19 @@
 
 <h1>New Author</h1>
 
+<% if @author.errors.any? %>
+<div style="background-color: #FF0000">
+<p>
+    Please fix the following errors:
+</p>
+<ul>
+    <% @author.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+</ul>
+</div>
+<% end %>
+
 <%= form_for @author do |f| %>
 
     <p>

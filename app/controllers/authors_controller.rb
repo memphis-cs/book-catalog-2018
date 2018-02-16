@@ -11,10 +11,16 @@ class AuthorsController < ApplicationController
     end
 
     def create
-        Author.create!(first_name: params[:author][:first_name],
-                       last_name: params[:author][:last_name],
-                       year_born: params[:author][:year_born])
-        redirect_to authors_url
+        @author = Author.new(first_name: params[:author][:first_name],
+                             last_name: params[:author][:last_name],
+                             year_born: params[:author][:year_born])
+        if @author.save
+            flash[:notice] = "Author saved successfully!"
+            redirect_to authors_url
+        else
+            flash.now[:alert] = "Author save failed!"
+            render :new
+        end
     end
 
     def show
@@ -29,16 +35,31 @@ class AuthorsController < ApplicationController
 
     def update
         @author = Author.find(params[:id])
-        @author.update!(first_name: params[:author][:first_name],
-                        last_name: params[:author][:last_name],
-                        year_born: params[:author][:year_born])
-        redirect_to authors_url
+        if @author.update(first_name: params[:author][:first_name],
+                          last_name: params[:author][:last_name],
+                          year_born: params[:author][:year_born])
+            flash[:notice] = "Author saved successfully!"
+            redirect_to authors_url
+        else
+            flash.now[:alert] = "Author save failed!"
+            render :edit
+        end
     end
 
     def destroy
-        @author = Author.find(params[:id])
-        @author.destroy!
-        redirect_to authors_url
+        begin
+            @author = Author.find(params[:id])
+        rescue ActiveRecord::RecordNotFound
+            flash[:alert] = "Author destruction failed!"
+            redirect_to authors_url and return
+        end
+        if @author.destroy
+            flash[:notice] = "Author destroyed successfully!"
+            redirect_to authors_url
+        else
+            flash[:alert] = "Author destruction failed!"
+            redirect_to authors_url
+        end
     end
 
 end
