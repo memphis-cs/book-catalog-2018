@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'authors/:id/edit', to: 'authors#edit', as: 'edit_author'
   put 'authors/:id', to: 'authors#update'
   patch 'authors/:id', to: 'authors#update'
+  delete 'authors/:id', to: 'authors#destroy'
 
   get 'pages/home', to: 'pages#home', as: 'pages_home'
   get 'sdflming', to: 'pages#sdflming', as: 'pages_sdflming'
