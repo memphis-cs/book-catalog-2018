@@ -11,6 +11,11 @@
 #
 
 class Author < ApplicationRecord
+    has_many :books
     validates :first_name, length: { maximum: 30 }
     validates :year_born, numericality: { greater_than: 1900, less_than: 2019 }
+
+    def full_name
+        return "#{first_name} #{last_name}"
+    end
 end

@@ -6,5 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Author.create!(first_name: 'Ayn', last_name: 'Rand', year_born: 1905)
-Author.create!(first_name: 'Peter', last_name: 'Benchley', year_born: 1940)
+ayn = Author.new(first_name: 'Ayn', last_name: 'Rand', year_born: 1905)
+peter = Author.new(first_name: 'Peter', last_name: 'Benchley', year_born: 1940)
+
+fountainhead = Book.new(title: 'The Fountainhead', year: 1943, summary: 'Blah...')
+atlas = Book.new(title: 'Atlas Shrugged', year: 1957, summary: 'Blah...')
+jaws = Book.new(title: 'Jaws', year: 1974, summary: 'Blah...')
+
+fountainhead.author = ayn
+atlas.author = ayn
+jaws.author = peter
+
+ayn.save!
+peter.save!
+
+fountainhead.save!
+atlas.save!
+jaws.save!
+
