@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <h1>Books</h1>
 
@@ -9,6 +8,7 @@
       <th>Year</th>
       <th>Summary</th>
       <th>Author</th>
+      <th>Publisher</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +20,7 @@
         <td><%= book.year %></td>
         <td><%= book.summary %></td>
         <td><%= book.author.first_name %> <%= book.author.last_name %></td>
+        <td><%= book.imprint.name %></td>
         <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
         <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>

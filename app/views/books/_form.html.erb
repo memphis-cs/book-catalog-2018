@@ -31,6 +31,11 @@
     <%= form.collection_select(:author_id, Author.all, :id, :full_name) %>
   </div>
 
+  <div class="field">
+    <%= form.label :imprint %>
+    <%= form.collection_select(:imprint_id, Publisher.all, :id, :name) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

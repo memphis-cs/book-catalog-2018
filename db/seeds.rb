@@ -13,9 +13,18 @@ fountainhead = Book.new(title: 'The Fountainhead', year: 1943, summary: 'Blah...
 atlas = Book.new(title: 'Atlas Shrugged', year: 1957, summary: 'Blah...')
 jaws = Book.new(title: 'Jaws', year: 1974, summary: 'Blah...')
 
+penguin = Publisher.new(name: 'Penguin Random House', url: 'https://www.penguinrandomhouse.com/')
+harper = Publisher.new(name: 'HarperCollins', url: 'https://www.harpercollins.com/')
+
+
 fountainhead.author = ayn
 atlas.author = ayn
 jaws.author = peter
+
+fountainhead.imprint = penguin
+atlas.imprint = harper
+jaws.imprint = penguin
+
 
 ayn.save!
 peter.save!
@@ -24,3 +33,5 @@ fountainhead.save!
 atlas.save!
 jaws.save!
 
+penguin.save!
+harper.save!
