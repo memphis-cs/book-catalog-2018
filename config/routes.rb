@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :publishers
   resources :books
   get 'authors', to: 'authors#index', as: 'authors'

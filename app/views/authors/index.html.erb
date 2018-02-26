@@ -23,8 +23,8 @@
 </td>
 <td>
 <%= link_to 'Show', author_path(author) %>
-<%= link_to 'Edit', edit_author_path(author) %>
-<%= link_to 'Destroy', author_path(author), method: :delete %>
+<% if user_signed_in? %><%= link_to 'Edit', edit_author_path(author) %><% end %>
+<% if user_signed_in? %><%= link_to 'Destroy', author_path(author), method: :delete %><% end %>
 </td>
 </tr>
 <% end %>
@@ -32,6 +32,6 @@
 </table>
 
 <p>
-<%= link_to 'New Author', new_author_path %>
+<% if user_signed_in? %><%= link_to 'New Author', new_author_path %><% end %>
 </p>
 

@@ -1,4 +1,5 @@
 class PublishersController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_publisher, only: [:show, :edit, :update, :destroy]
 
   # GET /publishers
